@@ -1,0 +1,25 @@
+{
+  "name": "crossasia-catp-picax-web",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "crossasia-catp-converter": "file:../crossasia-catp-converter",
+    "roboto-fontface": "*",
+    "vue": "^3.4.31",
+    "vue-clipboard3": "^2.0.0",
+    "vuetify": "^3.6.11"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "1.77.6",
+    "unplugin-fonts": "^1.1.1",
+    "unplugin-vue-components": "^0.27.2",
+    "vite": "^5.3.3",
+    "vite-plugin-vuetify": "^2.0.3"
+  }
+}
