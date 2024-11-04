@@ -1,6 +1,3 @@
-Here’s a refined version of your README.md:
-
----
 
 # crossasia-catp-picax-web
 
