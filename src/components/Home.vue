@@ -7,7 +7,7 @@
       <v-row>
         <v-col cols="6">
           <v-card width="100%" color='' variant="tonal" >
-            <v-textarea class='pa-1 ma-1' rows="30" row-height="2rem" name="input-7-1" label="Place your Japanese record here" v-model="text">
+            <v-textarea class='pa-1 ma-1' rows="30" row-height="2rem" name="input-7-1" label="Place your CATP (Japanese) record here" v-model="text">
             </v-textarea>
           </v-card>
         </v-col>
@@ -44,27 +44,22 @@
   const translatedText = ref('')
   const translatedHTML = ref('')
   watch(text, () => {
-    // console.log(text)
     const catpRecords = parseTextToArray(text.value)
-    // console.log(catpRecords)
     const PICAXRecords = catpRecords.map(record =>  PICAXRewrite(CAPTParse(record)))
     translatedHTML.value = PICAXRecords.map(record => record.map(x => typeof x === 'string' ? x : x.toHTML(x)).join('<br/>')).join('<hr/>')
     translatedText.value = PICAXRecords.map(record => record.join('\n')).join('\n\n\n')
-    // console.log(translatedText.value)
   })
   const doCopy = async () => {
     try {
       await toClipboard(translatedText.value)
-      // console.log('Copied to clipboard')
     } catch (e) {
-      // console.error(e)
     }
   }
   function parseTextToArray(inputText) {
     // Split the text by line breaks
     const lines = inputText.split(/\r?\n/);
     
-    let result = [];
+    const result = [];
     let tempArray = [];
 
     lines.forEach(line => {
@@ -87,21 +82,21 @@
 }
 </script>
 <style>
-  span.code {
+  #translatedPre span.code {
     margin-right: 1em;
     color:rgb(236, 106, 106)
   }
-  span.subCode {
+  #translatedPre span.subCode {
     color:rgb(119, 119, 245)
   }
-  span.lang {
+  #translatedPre span.lang {
     color:rgb(80, 165, 80)
   }
-  span.dollar {
+  #translatedPre span.dollar {
     color:rgb(204, 134, 204)
   }
-  hr {
+  #translatedPre hr {
     margin-top: 1em;
     margin-bottom: 1em;
   }
-  </style>
+</style>
