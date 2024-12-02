@@ -83,7 +83,7 @@
 </script>
 <style>
   #translatedPre span.code {
-    margin-right: 1em;
+    margin-right: 0em;
     color:rgb(236, 106, 106)
   }
   #translatedPre span.subCode {
